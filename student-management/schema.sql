@@ -1,7 +1,4 @@
--- =========================================================
--- Student Management System - Database Schema
--- افتحي phpMyAdmin وشغّلي هالكود كامل (Import أو SQL tab)
--- =========================================================
+
 
 CREATE DATABASE IF NOT EXISTS student_management
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
