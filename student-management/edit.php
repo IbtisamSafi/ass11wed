@@ -1,8 +1,5 @@
 <?php
-// =========================================================
-// edit.php
-// فورم معبّى ببيانات الطالب الحالية + UPDATE بـ prepared statement
-// =========================================================
+
 require 'db.php';
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
@@ -12,7 +9,6 @@ if ($id <= 0) {
     exit;
 }
 
-// نجيب بيانات الطالب الحالية
 $stmt = $pdo->prepare('SELECT * FROM students WHERE id = :id');
 $stmt->execute([':id' => $id]);
 $student = $stmt->fetch();
@@ -40,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $values[$key] = trim($_POST[$key] ?? '');
     }
 
-    // ---------- Validation (نفس منطق add.php) ----------
     if ($values['first_name'] === '') {
         $errors['first_name'] = 'الاسم الأول مطلوب';
     }
