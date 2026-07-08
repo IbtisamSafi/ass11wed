@@ -1,9 +1,5 @@
 <?php
-// =========================================================
-// delete.php
-// أول شي منعرض صفحة تأكيد (confirm) - وبس المستخدم يضغط "نعم احذف"
-// منسوي فعلياً DELETE
-// =========================================================
+
 require 'db.php';
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
@@ -23,7 +19,6 @@ if (!$student) {
     exit;
 }
 
-// إذا المستخدم ضغط على زر "نعم، احذف" (POST) منسوي الحذف الفعلي هون
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_delete'])) {
     $del = $pdo->prepare('DELETE FROM students WHERE id = :id');
     $del->execute([':id' => $id]);
