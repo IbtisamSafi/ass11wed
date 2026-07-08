@@ -1,8 +1,5 @@
 <?php
-// =========================================================
-// index.php
-// بيعرض كل الطلاب بجدول، مع Pagination (10 بكل صفحة)
-// =========================================================
+
 require 'db.php';
 
 $per_page = 10;
@@ -12,7 +9,6 @@ if ($page < 1) {
 }
 $offset = ($page - 1) * $per_page;
 
-// عدد الطلاب الكلي عشان نحسب عدد الصفحات
 $total       = (int) $pdo->query('SELECT COUNT(*) FROM students')->fetchColumn();
 $total_pages = max(1, (int) ceil($total / $per_page));
 if ($page > $total_pages) {
